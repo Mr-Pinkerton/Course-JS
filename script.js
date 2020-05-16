@@ -1,26 +1,78 @@
 'use strict';
 
-// const numberOfFilms = +prompt('Сколько фильмоы вы уже посмотрели?', '');
+const numberOfFilms = +prompt('Сколько фильмоы вы уже посмотрели?', '');
 
-// const presonalMovieDB = {
-//     count: numberOfFilms,
-//     movies: {},
-//     actors: {},
-//     geners: [],
-//     privat: false
-// };
+const presonalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    geners: [],
+    privat: false
+};
 
-// const a = prompt('Один из последних просмотренных фильмов?', '');   
-// const b = prompt('На сколько его оцените?', '');
-// const c = prompt('Один из последних просмотренных фильмов?', '');
-// const d = prompt('На сколько его оцените?', '');
 
-// presonalMovieDB.movies[a] = b;
-// presonalMovieDB.movies[c] = d;
+for ( let i = 0; i < 2; i++ ) {
+    const a = prompt('Один из последних просмотренных фильмов?', '');
+    const b = prompt('На сколько его оцените?', '');
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        presonalMovieDB.movies[a] = b;
+        console.log('Done');
+    } else {
+        console.log('Введите коррекные данные');
+        i--;
+    } 
+}
 
-// console.log(presonalMovieDB);
+// let i = 0;
 
-// //Условия
+// while (i < 2) {
+//     const a = prompt('Один из последних просмотренных фильмов?', '');
+//     const b = prompt('На сколько его оцените?', '');
+//     i++;
+
+//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//         presonalMovieDB.movies[a] = b;
+//         console.log('Done');
+//     } else {
+//         console.log('Введите коррекные данные');
+//         i--;
+//     } 
+// }
+
+
+// let i = 0;
+// do {
+//     const a = prompt('Один из последних просмотренных фильмов?', '');
+//     const b = prompt('На сколько его оцените?', '');
+//     i++;
+
+//         if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//         presonalMovieDB.movies[a] = b;
+//         console.log('Done');
+//     } else {
+//         console.log('Введите коррекные данные');
+//         i--;
+//     } 
+// }
+// while (i < 2);
+
+let r = presonalMovieDB.count;
+
+if (r < 10) {
+    console.log('Мало');
+} else if (r >= 10 && r < 30) {
+    console.log('Нормально');
+} else if (r >= 30) {
+    console.log('Задрот');
+} else {
+    console.log('Error');
+}
+
+
+
+console.log(presonalMovieDB);
+
+//Условия
 // if (4 == 9) {
 //     console.log('Ok');
 // } else {
@@ -60,7 +112,7 @@
 // }
 
 //Циклы
-let num = 50;
+// let num = 50;
 // Пока ( условие выполняется ) {
 //    Делай это действие 
 // }
