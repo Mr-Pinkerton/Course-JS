@@ -1,6 +1,13 @@
 'use strict';
 
-const numberOfFilms = +prompt('Сколько фильмоы вы уже посмотрели?', '');
+let numberOfFilms;
+function start() {
+    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+    }
+}
+start();
 
 const presonalMovieDB = {
     count: numberOfFilms,
@@ -11,17 +18,21 @@ const presonalMovieDB = {
 };
 
 
-for ( let i = 0; i < 2; i++ ) {
-    const a = prompt('Один из последних просмотренных фильмов?', '');
-    const b = prompt('На сколько его оцените?', '');
-    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-        presonalMovieDB.movies[a] = b;
-        console.log('Done');
-    } else {
-        console.log('Введите коррекные данные');
-        i--;
-    } 
+function rememberMyFilms() {
+    for ( let i = 0; i < 2; i++ ) {
+        const a = prompt('Один из последних просмотренных фильмов?', '');
+        const b = prompt('На сколько его оцените?', '');
+        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+            presonalMovieDB.movies[a] = b;
+            console.log('Done');
+        } else {
+            console.log('Введите коррекные данные');
+            i--;
+        } 
+    }
 }
+
+// rememberMyFilms();
 
 // let i = 0;
 
@@ -56,21 +67,48 @@ for ( let i = 0; i < 2; i++ ) {
 // }
 // while (i < 2);
 
-let r = presonalMovieDB.count;
 
-if (r < 10) {
-    console.log('Мало');
-} else if (r >= 10 && r < 30) {
-    console.log('Нормально');
-} else if (r >= 30) {
-    console.log('Задрот');
-} else {
-    console.log('Error');
+
+function detecteLevel() {
+    let r = presonalMovieDB.count;
+
+    if (r < 10) {
+        console.log('Мало');
+    } else if (r >= 10 && r < 30) {
+        console.log('Нормально');
+    } else if (r >= 30) {
+        console.log('Задрот');
+    } else {
+        console.log('Error');
+    }
 }
 
+// detecteLevel();
+
+function showMyDB(hidden) {
+    if (!hidden) {
+        console.log(presonalMovieDB);
+    }
+}
+
+showMyDB(presonalMovieDB.privat);
+
+function writeYourGeners() {
+    for(let i = 1; i <= 3; i++) {
+        let gener = prompt(`Ваш любимый жанр под номером ${i}`);
+        presonalMovieDB.geners[i - 1] = gener;
+    }
+}
+
+writeYourGeners();
 
 
-console.log(presonalMovieDB);
+
+
+
+
+
+// =========================================================================================  //
 
 //Условия
 // if (4 == 9) {
@@ -147,3 +185,33 @@ console.log(presonalMovieDB);
 //     console.log(i);
 
 // }
+
+//Функции
+// function имяФункции (аргумент, ...) {
+//     действие;
+// }
+
+
+// //Создаем функцию
+// function firstFunk (text) {
+//     console.log(text);
+// }
+// //Вызов функции
+// firstFunk('Hello world');
+
+// function calc(a, b) {
+//     return (a + b);
+// }
+
+// console.log(calc(4, 3));
+
+
+// const logger = function() {
+//     console.log('Hello world');
+// };
+
+// logger();
+
+// const calca = (a , b) => {
+//     return (a + b);
+// };
